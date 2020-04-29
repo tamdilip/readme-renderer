@@ -1,7 +1,7 @@
 $(document).ready(function () {
     grabLocation();
     $(window).on('hashchange', function (e) {
-        if (window.location.href === window.location.origin + window.location.pathname)
+        if (window.location.href.indexOf('#') == -1 || window.location.href === window.location.origin + window.location.pathname)
             window.location = window.location.origin;
         else
             grabLocation();
@@ -23,7 +23,7 @@ function grabLocation() {
 function getRepoUrl() {
     var repoUrl;
     var locationSplits = window.location.href.split('#');
-    if (locationSplits.length > 0 && locationSplits[1] !== "")
+    if (locationSplits.length > 1 && locationSplits[1] !== "")
         repoUrl = locationSplits[1];
     return repoUrl;
 }
