@@ -40,6 +40,7 @@ function renderPage(repo) {
             $.post("https://api.github.com/markdown",
                 JSON.stringify({ text: markdownContent }),
                 function (data) {
+                    $(".errorPage").addClass("d-none");
                     $(".loading").addClass("d-none");
                     $(".render-page").removeClass("d-none");
                     $("#renderContent").html(data);
