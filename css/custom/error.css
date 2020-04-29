@@ -1,0 +1,77 @@
+.errorPage {
+	height: 100vh;
+	width: 100%;
+	background: -webkit-linear-gradient( 90deg, #782d7a 0% 10%, #999933 10% 20%, #fb59ac 20% 30%, #339999 30% 40%, #82cf0c 40% 50%, #abcdef 50% 60%, #987654 60% 70%, #564320 70% 80%, #a5d3c0 80% 90%, #1f8a3c 90% 100%);
+	background: -o-linear-gradient( 90deg, #782d7a 0% 10%, #999933 10% 20%, #fb59ac 20% 30%, #339999 30% 40%, #82cf0c 40% 50%, #abcdef 50% 60%, #987654 60% 70%, #564320 70% 80%, #a5d3c0 80% 90%, #1f8a3c 90% 100%);
+	background: linear-gradient( 90deg, #782d7a 0% 10%, #999933 10% 20%, #fb59ac 20% 30%, #339999 30% 40%, #82cf0c 40% 50%, #abcdef 50% 60%, #987654 60% 70%, #564320 70% 80%, #a5d3c0 80% 90%, #1f8a3c 90% 100%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	overflow: hidden;
+	user-select: none;
+}
+
+.errorPage::after {
+	content: '';
+	height: 80px;
+	width: 120%;
+	background: #000;
+	filter: blur(8px);
+	opacity: .3;
+	display: block;
+	position: absolute;
+	top: 0px;
+	left: -10%;
+	-webkit-animation: errorPagemove 3s linear infinite;
+	-o-animation: errorPagemove 3s linear infinite;
+	animation: errorPagemove 3s linear infinite;
+}
+
+@keyframes errorPagemove {
+	0% {
+		top: -100px;
+		filter: blur(5px);
+	}
+	100% {
+		top: 120%;
+		filter: blur(18px);
+	}
+}
+
+.errorPage .main {
+	text-align: center;
+}
+
+.errorPage .main .errorStatus {
+	font-size: 200px;
+	color: #565656;
+	font-weight: 600;
+	letter-spacing: 10px;
+	text-shadow: 4px 4px 5px #993;
+}
+
+.errorPage .main .errorMessage {
+	font-size: 30px;
+	text-shadow: 4px 4px 5px #993;
+	margin-bottom: 10px;
+}
+
+.errorPage .main .backToHome a {
+	text-decoration: none;
+	color: #444;
+	background: #fff;
+	display: inline-block;
+	padding: 14px 40px 12px;
+	font-size: 20px;
+	text-transform: uppercase;
+	border-radius: 4px;
+	transition: .5s;
+}
+
+.errorPage .main .backToHome a:hover {
+	background: #993;
+	color: #fff;
+	box-shadow: 0 4px 4px #888;
+	transform: translateY(-3px) scale(1.01);
+}
