@@ -2,16 +2,16 @@ $(document).ready(function () {
     grabLocation();
     $(window).on('hashchange', function (e) {
         if (window.location.href.indexOf('#') == -1 || window.location.href === window.location.origin + window.location.pathname)
-            window.location = window.location.origin;
+            window.location = window.location.origin + window.location.pathname;
         else
             grabLocation();
     });
     $(".goIcon").click(function () {
         var repoUrl = $('#search').val();
-        repoUrl && (window.location = window.location.href + "#" + repoUrl);
+        repoUrl && (window.location = window.location.origin + window.location.pathname + "#" + repoUrl);
     });
     $(".backToHome").click(function () {
-        window.location = window.location.origin;
+        window.location = window.location.origin + window.location.pathname;
     });
 });
 
