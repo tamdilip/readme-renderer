@@ -13,6 +13,12 @@ $(document).ready(function () {
     $(".backToHome").click(function () {
         window.location = window.location.origin + window.location.pathname;
     });
+    $("#search").keypress(function (e) {
+        if (e.which == 13) {
+            e.preventDefault();
+            $(".goIcon").click();
+        }
+    });
 });
 
 function grabLocation() {
