@@ -8,7 +8,7 @@ $(document).ready(function () {
     });
     $(".goIcon").click(function () {
         var repoUrl = $('#search').val();
-        repoUrl && (window.location = window.location.origin + "#" + repoUrl);
+        repoUrl && (window.location = window.location.href + "#" + repoUrl);
     });
     $(".backToHome").click(function () {
         window.location = window.location.origin;
