@@ -5,5 +5,3 @@ import './src/css/app.css';
 
 
 import './src/js/app.js';
-import './src/js/search.js';
-

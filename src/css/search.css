@@ -44,7 +44,7 @@ h6 {
 }
 
 .search-icon,
-.goIcon {
+#goIcon {
 	position: absolute;
 	top: 0;
 	height: 60px;
@@ -79,7 +79,7 @@ h6 {
 	-o-transform: rotate(0deg);
 }
 
-.goIcon {
+#goIcon {
 	right: 0;
 	pointer-events: none;
 	font-size: 1.38em;
@@ -97,17 +97,17 @@ h6 {
 }
 
 .go-in {
-	opacity: 1;
-	pointer-events: all;
-	cursor: pointer;
-	transform: rotate(0);
-	-webkit-transform: rotate(0);
-	-moz-transform: rotate(0);
-	-o-transform: rotate(0);
-	transition: opacity 190ms ease-out, transform 260ms 20ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
-	-webkit-transition: opacity 190ms ease-out, transform 260ms 20ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
-	-moz-transition: opacity 190ms ease-out, transform 260ms 20ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
-	-o-transition: opacity 190ms ease-out, transform 260ms 20ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+	opacity: 1 !important;
+	pointer-events: all !important;
+	cursor: pointer!important;
+	transform: rotate(0)!important;
+	-webkit-transform: rotate(0)!important;
+	-moz-transform: rotate(0)!important;
+	-o-transform: rotate(0)!important;
+	transition: opacity 190ms ease-out, transform 260ms 20ms cubic-bezier(0.190, 1.000, 0.220, 1.000)!important;
+	-webkit-transition: opacity 190ms ease-out, transform 260ms 20ms cubic-bezier(0.190, 1.000, 0.220, 1.000)!important;
+	-moz-transition: opacity 190ms ease-out, transform 260ms 20ms cubic-bezier(0.190, 1.000, 0.220, 1.000)!important;
+	-o-transition: opacity 190ms ease-out, transform 260ms 20ms cubic-bezier(0.190, 1.000, 0.220, 1.000)!important;
 }
 
 .search-border {

@@ -35,8 +35,7 @@
         "webpack-dev-server": "^3.8.1"
     },
     "dependencies": {
-        "bootstrap": "^4.4.1",
-        "jquery": "^3.5.0"
+        "bootstrap": "^4.4.1"
     },
     "keywords": [
         "readme",

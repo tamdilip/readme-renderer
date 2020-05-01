@@ -1,60 +1,81 @@
-$(document).ready(function () {
+(() => {
     grabLocation();
-    $(window).on('hashchange', function (e) {
+    window.onhashchange = () => {
         if (window.location.href.indexOf('#') == -1 || window.location.href === window.location.origin + window.location.pathname)
             window.location = window.location.origin + window.location.pathname;
         else
             grabLocation();
-    });
-    $(".goIcon").click(function () {
-        var repoUrl = $('#search').val();
+    };
+    document.getElementById('goIcon').onclick = () => {
+        let repoUrl = document.getElementById("search").value;
         repoUrl && (window.location = window.location.origin + window.location.pathname + "#" + repoUrl);
-    });
-    $(".backToHome").click(function () {
+    };
+    document.getElementById('backToHome').onclick = () => {
         window.location = window.location.origin + window.location.pathname;
-    });
-    $("#search").keypress(function (e) {
+    };
+    document.getElementById("search").onkeypress = (e) => {
         if (e.which == 13) {
             e.preventDefault();
-            $(".goIcon").click();
+            document.getElementById('goIcon').click();
         }
-    });
-});
+    };
+    document.getElementById("search").onfocus = () => {
+        document.querySelector('.search-box').classList.add("border-searching");
+        document.querySelector('.search-icon').classList.add("si-rotate");
+    };
+    document.getElementById("search").onblur = () => {
+        document.querySelector('.search-box').classList.remove("border-searching");
+        document.querySelector('.search-icon').classList.remove("si-rotate");
+    };
+    document.getElementById("search").onkeyup = (e) => {
+        if (e.target.value.length > 0)
+            document.getElementById('goIcon').classList.add("go-in");
+        else
+            document.getElementById('goIcon').classList.remove("go-in");
+    };
+})("docReady", window);
 
 function grabLocation() {
-    var repoUrl = getRepoUrl(), repoName;
+    let repoUrl = getRepoUrl(), repoName;
     repoUrl && (repoName = getRepoName(repoUrl));
     repoName && renderPage(repoName);
 }
 function getRepoUrl() {
-    var repoUrl;
-    var locationSplits = window.location.href.split('#');
+    let repoUrl, locationSplits = window.location.href.split('#');
     if (locationSplits.length > 1 && locationSplits[1] !== "")
         repoUrl = locationSplits[1];
     return repoUrl;
 }
 function getRepoName(repoUrl) {
-    var gitSplits = repoUrl.split('https://github.com/')[1], repoName;
+    let repoName, gitSplits = repoUrl.split('https://github.com/')[1];
     gitSplits && (repoName = gitSplits.split('/').slice(0, 2).join('/'));
     return repoName;
 }
 function renderPage(repo) {
-    $(".search-box").addClass("d-none");
-    $(".loading").removeClass("d-none");
-    $.ajax({
-        url: "https://raw.githubusercontent.com/" + repo + "/master/README.md", success: function (markdownContent) {
-            $.post("https://api.github.com/markdown",
-                JSON.stringify({ text: markdownContent }),
-                function (data) {
-                    $(".errorPage").addClass("d-none");
-                    $(".loading").addClass("d-none");
-                    $(".render-page").removeClass("d-none");
-                    $("#renderContent").html(data);
+    document.querySelector('.search-box').classList.add("d-none");
+    document.querySelector('.loading').classList.remove("d-none");
+    fetch("https://raw.githubusercontent.com/" + repo + "/master/README.md").then(handleErrors)
+        .then((markdown) => {
+            fetch("https://api.github.com/markdown", { method: 'POST', body: JSON.stringify({ text: markdown }) }).then(handleErrors)
+                .then((response) => {
+                    document.querySelector('.errorPage').classList.add("d-none");
+                    document.querySelector('.loading').classList.add("d-none");
+                    document.querySelector('.render-page').classList.remove("d-none");
+                    document.getElementById("renderContent").innerHTML = response;
+                }).catch((e) => {
+                    document.querySelector('.search-page').classList.add("d-none");
+                    document.querySelector('.render-page').classList.add("d-none");
+                    document.querySelector('.errorPage').classList.remove("d-none");
                 });
-        }, error: function () {
-            $(".search-page").addClass("d-none");
-            $(".render-page").addClass("d-none");
-            $(".errorPage").removeClass("d-none");
-        }
-    });
+        })
+        .catch((e) => {
+            document.querySelector('.search-page').classList.add("d-none");
+            document.querySelector('.render-page').classList.add("d-none");
+            document.querySelector('.errorPage').classList.remove("d-none");
+        });
+}
+function handleErrors(response) {
+    if (!response.ok)
+        throw Error(response.statusText);
+    return response.text();
 }

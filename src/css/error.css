@@ -57,7 +57,7 @@
 	margin-bottom: 10px;
 }
 
-.errorPage .main .backToHome a {
+.errorPage .main #backToHome a {
 	text-decoration: none;
 	color: #444;
 	background: #fff;
@@ -69,7 +69,7 @@
 	transition: .5s;
 }
 
-.errorPage .main .backToHome a:hover {
+.errorPage .main #backToHome a:hover {
 	background: #993;
 	color: #fff;
 	box-shadow: 0 4px 4px #888;
