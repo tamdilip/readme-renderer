@@ -11,7 +11,7 @@ module.exports = {
     mode: env,
 
     output: {
-        path: path.resolve(__dirname, 'docs'),
+        path: path.resolve(__dirname, 'demo'),
         filename: '[name].bundle.js',
         publicPath: '/'
     },
