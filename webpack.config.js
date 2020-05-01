@@ -16,6 +16,13 @@ module.exports = {
         publicPath: '/'
     },
 
+    devServer: {
+        contentBase: path.join(__dirname, 'public'),
+        compress: true,
+        port: 3500,
+        hot: true,
+    },
+
     module: {
         rules: [
             {

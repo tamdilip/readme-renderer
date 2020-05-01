@@ -1,22 +1,73 @@
+html,
+body {
+    font-family: 'Montserrat Alternates', sans-serif;
+    color: #FFFFFF;
+    background: #9a39a3;
+    background: -moz-linear-gradient(linear, left top, left bottom, from(#9a39a3), to(#4167a8)) fixed;
+    background: -webkit-gradient(linear, left top, left bottom, from(#9a39a3), to(#4167a8)) fixed;
+    background: -webkit-linear-gradient(linear, left top, left bottom, from(#9a39a3), to(#4167a8)) fixed;
+    background: -o-linear-gradient(linear, left top, left bottom, from(#9a39a3), to(#4167a8)) fixed;
+    background: -ms-linear-gradient(linear, left top, left bottom, from(#9a39a3), to(#4167a8)) fixed;
+    background: linear-gradient(linear, left top, left bottom, from(#9a39a3), to(#4167a8)) fixed;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: rgb(198, 247, 47);
+}
+
+.container {
+    position: relative;
+    margin: calc(75px + 2vh + 2vw) auto 75px auto;
+    padding: 0px;
+    max-width: 840px;
+}
+
+#renderContent {
+    width: 100%;
+    padding: 0px 25px;
+}
+
 .page-center {
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 pre {
-	margin: 40px;
-	padding: 20px 25px;
-	background-color: mistyrose;
+    margin: 10px;
+    padding: 20px 25px;
+    background-color: mistyrose;
 }
 
 pre,
 img {
-	-moz-box-shadow: 10px 10px 10px rgba(68, 68, 68, 0.6);
-	-webkit-box-shadow: 10px 10px 10px rgba(68, 68, 68, 0.6);
-	box-shadow: 10px 10px 10px rgba(68, 68, 68, 0.6);
-	filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=3, MakeShadow=true, ShadowOpacity=0.30);
-	-ms-filter: "progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30)";
-	zoom: 1;
+    -moz-box-shadow: 10px 10px 10px rgba(68, 68, 68, 0.6);
+    -webkit-box-shadow: 10px 10px 10px rgba(68, 68, 68, 0.6);
+    box-shadow: 10px 10px 10px rgba(68, 68, 68, 0.6);
+    zoom: 1;
+}
+
+code {
+    font-weight: bold;
+    color: orange;
+}
+
+a {
+    color: #00ced1;
+}
+
+a:hover {
+    color: #f0e68c;
+}
+
+@media screen and (max-width: 768px) {
+    .hide-on-mobile {
+        display: none;
+    }
 }
