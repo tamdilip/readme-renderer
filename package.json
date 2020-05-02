@@ -5,7 +5,7 @@
     "description": "A simple fun app to render git repositories Readme.md file contents as a standalone webpage.",
     "repository": {
         "type": "git",
-        "url": "https://github.com/tamdilip/readme-renderere"
+        "url": "https://github.com/tamdilip/readme-renderer"
     },
     "main": "index.js",
     "scripts": {
