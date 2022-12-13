@@ -1,4 +1,6 @@
 # 🖨️ readme-renderer
+[![Live demo](https://img.shields.io/badge/gh%20pages-Live%20demo-blue?style=flat-square&logo=git&logoColor=violet)](https://tamdilip.github.io/readme-renderer)
+
 A minimal app to render git repositories `Readme.md` file contents as a standalone webpage. Apart from the default gh-pages support to render Readme content, for cases when you have hosted an actual content in your repo and still wants to render and publish Readme as a separate page😉. 
 
 ## Usage
